@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Singh - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --tag-bg: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.45;
+      font-size: 12.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 36px 44px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 6px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      @page {
+        margin: 10mm 14mm;
+        size: A4;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit !important;
+      }
+    }
+
+    /* Action bar */
+    .action-bar {
+      max-width: 850px;
+      margin: 16px auto 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .btn-print {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #2563eb;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .name-role {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    h1 {
+      font-size: 25px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .target-role {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 11.8px;
+      color: var(--text-muted);
+    }
+
+    .contact-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .contact-links span.bullet {
+      color: var(--border);
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 12.2px;
+      color: var(--text);
+      margin-bottom: 13px;
+      line-height: 1.48;
+    }
+
+    /* Section titles */
+    section {
+      margin-bottom: 13px;
+    }
+
+    h2 {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* Skills */
+    .skills-block {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      row-gap: 4px;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+
+    .skills-label {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .skills-list {
+      color: var(--text);
+    }
+
+    /* Projects */
+    .item {
+      margin-bottom: 10px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .item-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .item-title a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .item-title a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .item-tech {
+      font-size: 11.2px;
+      color: var(--accent);
+      font-weight: 500;
+      margin-left: 5px;
+    }
+
+    .item-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    ul.item-bullets {
+      list-style-type: disc;
+      margin-left: 17px;
+      margin-top: 2px;
+    }
+
+    ul.item-bullets li {
+      font-size: 11.8px;
+      color: var(--text);
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+
+    ul.item-bullets li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Achievements */
+    .achieve-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .achieve-list li {
+      font-size: 11.8px;
+      margin-bottom: 4px;
+      line-height: 1.4;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .achieve-list li span.icon {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Education */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-degree {
+      font-size: 12.8px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .edu-school {
+      font-size: 11.8px;
+      color: var(--text-muted);
+    }
+
+    .edu-meta {
+      font-size: 11.8px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="action-bar no-print">
+    <button class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 9V2h12v7"></path>
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+        <rect x="6" y="14" width="12" height="8"></rect>
+      </svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <!-- Header -->
+    <header>
+      <div class="name-role">
+        <h1>Rohit Singh</h1>
+        <span class="target-role">AI & Software Engineering Intern</span>
+      </div>
+      <div class="contact-links">
+        <span>📍 Hyderabad, India</span>
+        <span class="bullet">•</span>
+        <a href="mailto:rohitsingh89788@gmail.com">✉️ rohitsingh89788@gmail.com</a>
+        <span class="bullet">•</span>
+        <a href="https://linkedin.com/in/rohit-singh-180ba1324" target="_blank">🔗 linkedin.com/in/rohit-singh-180ba1324</a>
+        <span class="bullet">•</span>
+        <a href="https://github.com/rohitsingh83" target="_blank">💻 github.com/rohitsingh83</a>
+      </div>
+    </header>
+
+    <!-- Humanized & Grounded Summary -->
+    <div class="summary-text">
+      I'm a <strong>CSE (AI & ML) undergraduate</strong> (Graduation: <strong>2029</strong>) who loves turning complex ideas into working software. Instead of just following tutorials, I focus on building complete, dependable systems from scratch — whether that's training deep learning models with explainable Grad-CAM heatmaps, coding algorithmic <strong>A* graph pathfinding</strong> for robotics, detecting zero-day cyber anomalies, or engineering full-stack platforms with Next.js and WebSockets. I take pride in writing clean, well-tested code, understanding the real failure modes of ML models, and building software that genuinely helps developers learn and build faster.
+    </div>
+
+    <!-- Honest Technical Skills (Only what Rohit genuinely knows and builds with) -->
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-block">
+        <span class="skills-label">Languages:</span>
+        <span class="skills-list">Python, TypeScript, JavaScript, SQL, HTML5/CSS3.</span>
+      </div>
+      <div class="skills-block">
+        <span class="skills-label">Machine Learning & AI:</span>
+        <span class="skills-list">TensorFlow, Keras, scikit-learn, CNNs, Grad-CAM Visual Explainability, Isolation Forest, Random Forest, Ridge Regression, Time-Series Modeling, NumPy, Pandas, Matplotlib.</span>
+      </div>
+      <div class="skills-block">
+        <span class="skills-label">Core CS & Algorithms:</span>
+        <span class="skills-list">Data Structures & Algorithms (DSA), A* Graph Search, Dynamic 2D Occupancy Grids, Heuristic Search, Raycasting, Object-Oriented Programming (OOP).</span>
+      </div>
+      <div class="skills-block">
+        <span class="skills-label">Full-Stack & Systems:</span>
+        <span class="skills-list">React, Next.js 14, Node.js, Express, Flask, REST APIs, WebSockets (Socket.IO), Tailwind CSS.</span>
+      </div>
+      <div class="skills-block">
+        <span class="skills-label">Databases & Tools:</span>
+        <span class="skills-list">PostgreSQL, Supabase, MongoDB, Docker, Git, GitHub Actions, VS Code.</span>
+      </div>
+    </section>
+
+    <!-- Real Projects Shipped by Rohit -->
+    <section>
+      <h2>Featured Projects</h2>
+
+      <!-- Project 1: Autonomous Navigation (Proving strong DSA) -->
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title"><a href="https://rohitsingh83.github.io/AI-Autonomous-Navigation-System/" target="_blank">AI Autonomous Navigation & Pathfinding System</a></span>
+            <span class="item-tech">| Python, A* Search, Heuristics, Dynamic Occupancy Grids</span>
+          </div>
+          <span class="item-date">2026</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Engineered an autonomous ground robot navigation stack from scratch, implementing <strong>A* graph traversal</strong> with line-of-sight raycast smoothing for real-time collision-free path planning.</li>
+          <li>Constructed dynamic <strong>2D occupancy grid mapping</strong> combined with ultrasonic raycasting perception and pure-pursuit trajectory control.</li>
+          <li>Tested across <strong>60 benchmark obstacle layouts</strong> with a <strong>100% goal arrival rate and zero collisions</strong>, proving solid algorithmic edge-case handling under strict computational constraints.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2: PneumoAI (ML fundamentals beyond APIs) -->
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title"><a href="https://rohitsingh83.github.io/AI-Medical-Image-Analysis/" target="_blank">PneumoAI: Diagnostic Vision & Explainability</a></span>
+            <span class="item-tech">| Python, TensorFlow, Keras, Grad-CAM, Flask</span>
+          </div>
+          <span class="item-date">2026</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Trained and validated a deep convolutional neural network on chest radiograph datasets to detect pneumonia, achieving <strong>95.4% validation accuracy</strong> and an AUC-ROC of <strong>0.98</strong>.</li>
+          <li>Integrated <strong>Grad-CAM (Gradient-weighted Class Activation Mapping)</strong> to produce visual attention heatmaps, providing clinician-grounded explainability rather than treating the model as a black box.</li>
+          <li>Deployed as a standalone Flask application with client-side image upload and sub-second inference visualization.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3: Threat Detection (Anomaly detection & Defense in depth) -->
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title"><a href="https://rohitsingh83.github.io/AI-Cybersecurity-Threat-Detection/" target="_blank">AI Cybersecurity Threat Detection System</a></span>
+            <span class="item-tech">| Python, scikit-learn, Isolation Forest, Random Forest, Docker</span>
+          </div>
+          <span class="item-date">2026</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Built a defense-in-depth network intrusion detection platform pairing supervised <strong>Random Forest classification (99.2% accuracy)</strong> with unsupervised <strong>Isolation Forest</strong> to flag zero-day anomalous network traffic.</li>
+          <li>Mapped detected attacks to the <strong>MITRE ATT&CK</strong> framework with structured forensic telemetry, feeding alerts to an interactive dark-themed SOC analyst console.</li>
+        </ul>
+      </div>
+
+      <!-- Project 4: Energy Demand Forecasting -->
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title"><a href="https://rohitsingh83.github.io/AI-Energy-Forecasting/" target="_blank">AI Energy Consumption Forecasting & Optimization</a></span>
+            <span class="item-tech">| Python, scikit-learn, Ridge, MLP, Time-Series Backtesting</span>
+          </div>
+          <span class="item-date">2026</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Built an hourly demand forecasting platform benchmarking Ridge Regression, Random Forest, and Scaled MLPs against seasonal baselines over <strong>52,000+ hours</strong> of building and household energy datasets.</li>
+          <li>Ensured strict <strong>zero-data-leakage chronological validation</strong> and implemented an interactive virtual load-shifting simulator under Time-of-Use tariffs with empirical uncertainty bands (±95%).</li>
+        </ul>
+      </div>
+
+      <!-- Project 5: CabGo (Full-Stack Real-Time Platform) -->
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title"><a href="https://github.com/rohitsingh83" target="_blank">CabGo: Real-Time Transportation Platform</a></span>
+            <span class="item-tech">| Next.js 14, TypeScript, Supabase, WebSockets, PostgreSQL • <em>(In Active Development)</em></span>
+          </div>
+          <span class="item-date">2026</span>
+        </div>
+        <ul class="item-bullets">
+          <li>Architecting a production-style cab booking platform with distinct Rider, Driver, and Admin workflows using <strong>Next.js 14, TypeScript, and Supabase</strong>.</li>
+          <li>Implementing real-time location telemetry over <strong>WebSockets</strong>, Stripe payment intents, and PostgreSQL Row-Level Security (RLS) policies.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section>
+      <h2>Key Achievements & Milestones</h2>
+      <ul class="achieve-list">
+        <li>
+          <span class="icon">✦</span>
+          <div><strong>IIT Delhi AI & ML Project Portfolio:</strong> Engineered and completed 5 comprehensive AI/ML platforms across robotics pathfinding, medical imaging, network threat detection, and energy forecasting with rigorous validation.</div>
+        </li>
+        <li>
+          <span class="icon">✦</span>
+          <div><strong>Published & Deployed 4+ Live Applications:</strong> All major projects feature publicly accessible live web demos on GitHub Pages, transparent documentation, and reproducible open-source repositories.</div>
+        </li>
+        <li>
+          <span class="icon">✦</span>
+          <div><strong>Algorithmic & Heuristic Problem Solving:</strong> Designed and benchmarked a 100% collision-free A* graph pathfinder across 60 rigorous simulation maps, demonstrating strong DSA and spatial reasoning.</div>
+        </li>
+        <li>
+          <span class="icon">✦</span>
+          <div><strong>Full-Stack Builder:</strong> Independently developed production-grade TypeScript and Python applications with responsive UX, database models, and real-time socket communication.</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2>Education</h2>
+      <div class="edu-row">
+        <div>
+          <span class="edu-degree">Bachelor of Technology in Computer Science & Engineering (AI & ML)</span>
+          <div class="edu-school">Undergraduate • Expected Graduation: <strong>2029</strong></div>
+        </div>
+        <div class="edu-meta">Hyderabad, India</div>
+      </div>
+      <div style="margin-top: 4px; font-size: 11.5px; color: var(--text-muted);">
+        <strong>Relevant Coursework:</strong> Data Structures & Algorithms, Design and Analysis of Algorithms, Artificial Intelligence, Machine Learning, Database Management Systems (DBMS), Object-Oriented Programming (OOP).
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>
